@@ -1,9 +1,24 @@
-import React from 'react'
+import { Container, Row, Col } from "reactstrap";
+import Helmet from "../components/Helmet/Helmet";
+import CommonSection from "../components/UI/CommonSection";
+import itemData from "../assets/data/data";
 
+import ProductsList from "../components/UI/ProductsList";
 const Headphones = () => {
+  const headphones = itemData.filter((item) => item.category === "headphones");
   return (
-    <div>Headphones</div>
-  )
-}
+    <Helmet title="headphones">
+      <CommonSection title="HEADPHONES" />
 
-export default Headphones
+      <section>
+        <Container>
+          <Row>
+            <ProductsList data={headphones} />
+          </Row>
+        </Container>
+      </section>
+    </Helmet>
+  );
+};
+
+export default Headphones;
