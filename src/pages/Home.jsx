@@ -6,11 +6,12 @@ import itemData from "../assets/data/data";
 import PersonBlog from "../components/UI/PersonBlog";
 
 const Home = () => {
-  const speaker = itemData.filter((item) => item.title === "ZX9 SPEAKER")[0]
+  const speaker = itemData.filter((item) => item.title === "ZX9 SPEAKER")[0];
 
-  const speaker2 = itemData.filter((item) => item.title === "ZX7 SPEAKER")[0]
-  const earphone = itemData.filter((item) => item.title === "YX1 WIRELESS EARPHONES")[0]
-
+  const speaker2 = itemData.filter((item) => item.title === "ZX7 SPEAKER")[0];
+  const earphone = itemData.filter(
+    (item) => item.title === "YX1 WIRELESS EARPHONES"
+  )[0];
 
   return (
     <div>
@@ -41,10 +42,12 @@ const Home = () => {
 
       <section className="item__category">
         <Container>
-          <Row><ItemCategory /></Row>
+          <Row>
+            <ItemCategory />
+          </Row>
         </Container>
       </section>
-      
+
       <div className="speaker__category">
         <Container>
           <Row className="speaker__category-row">
@@ -89,10 +92,7 @@ const Home = () => {
                 <button>SEE PRODUCT</button>
               </div>
             </Col>
-            <img
-              src={speaker2.thumbnail3}
-              alt="speaker image"
-            />
+            <img src={speaker2.thumbnail3} alt="speaker image" />
           </Row>
         </Container>
       </div>
@@ -116,31 +116,7 @@ const Home = () => {
         </Container>
       </div>
 
-      <div className="audophile__section">
-        <Container  >
-          <Row className="d-flex align-items-center justify-content-space-between">
-            <Col lg="6">
-              <div className="audophile__section-info">
-                <h3>
-                  Bringing you the <span>best</span> audio gear
-                </h3>
-                <p>
-                  Located at the heart of New York City, Audiophile is the
-                  premier store for high end headphones, earphones, speakers,
-                  and audio accessories. We have a large showroom and luxury
-                  demonstration rooms available for you to browse and experience
-                  a wide range of our products. Stop by our store to meet some
-                  of the fantastic people who make Audiophile the best place to
-                  buy your portable audio equipment.
-                </p>
-              </div>
-            </Col>
-            <PersonBlog/>
-        
-          </Row>
-        </Container>
-      </div>
-      
+      <PersonBlog />
     </div>
   );
 };
