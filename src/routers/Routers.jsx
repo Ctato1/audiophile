@@ -1,5 +1,6 @@
-import React, { useEffect, useState, lazy, Suspense } from "react";
+import React, {lazy, Suspense } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import Loading from "../components/Loading/Loading";
 
 const Home = lazy(() => import("../pages/Home"));
 const Headphones = lazy(() => import("../pages/Headphones"));
@@ -10,7 +11,7 @@ const ProductDetails = lazy(() => import("../pages/ProductDetails"));
 const Routers = () => {
   const location = useLocation();
   return (
-    <Suspense fallback={<div>Loading</div>}>
+    <Suspense fallback={<Loading/>}>
       <Routes location={location}>
         <Route path="/" element={<Navigate to="home" />} />
         <Route path="home" element={<Home />} />
