@@ -3,6 +3,7 @@ import "../styles/home.css";
 import ItemCategory from "../components/UI/ItemCategory";
 import headPhone from "../assets/images/headphone.png";
 import itemData from "../assets/data/data";
+import PersonBlog from "../components/UI/PersonBlog";
 
 const Home = () => {
   const speaker = itemData.filter((item) => item.title === "ZX9 SPEAKER")[0]
@@ -11,7 +12,6 @@ const Home = () => {
   const earphone = itemData.filter((item) => item.title === "YX1 WIRELESS EARPHONES")[0]
 
 
-  console.log(speaker);
   return (
     <div>
       <section className="hero__section">
@@ -44,7 +44,7 @@ const Home = () => {
           <Row><ItemCategory /></Row>
         </Container>
       </section>
-      {/* 
+      
       <div className="speaker__category">
         <Container>
           <Row className="speaker__category-row">
@@ -90,7 +90,7 @@ const Home = () => {
               </div>
             </Col>
             <img
-              src="https://s3-alpha-sig.figma.com/img/7ae3/b1ab/940fc98ffa8a0a8e425a83d26aafb51e?Expires=1705276800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ABVcwxU88jDZg0QyoDQbWU87SfiDdNKLmIUUrkrsqL69TeL4LozhWxbVmI2XPPR7hok9kYk45FfCm7r44Oh-yV-QL1jop1K10UY~DdmSjw9f7KhbRrg536dl49KCEPrmBoU7ixyYka-98EizAu~av7X4kX9-HAsRqnmYmolyhqZWgcwxeOvkawJ1wewQS1TpA4N-vrxclw~TiQBIcyPjLzANQMfZOmQzcTWNirnv0m3tmO1pFyI31p2IGbznE13jCOn3PFmQTvj2k7kwaeqxkwbAEXsmzLkc5JxhwSbBW--lEkv4UkwpiAUSX7VZ4xd67gUeeCKRAxf4RIMhAZGj3g__"
+              src={speaker2.thumbnail3}
               alt="speaker image"
             />
           </Row>
@@ -135,18 +135,12 @@ const Home = () => {
                 </p>
               </div>
             </Col>
-            <Col lg="6" className="custom-right-column">
-              <div className="audophile__section-img">
-                <img
-                  src=" https://s3-alpha-sig.figma.com/img/40fc/9ebb/9d58f1c7dc8b0d31f292fcfa9f9efe8b?Expires=1705276800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TJGMEf7nVkudguQbu7ctnBjtjICAjc13PmLq4T7R5v6lgh8iC5dzkhxOosxBJ~Yp9ztq1nIWEhTdM01IiTKnBS6UJtBEx17JffhSQPiO77thL~uf~tpP7Kph0rmW~0tP3K74noh351FM08PXSEAfoU7EBqQFCfQglrpoLwE7atEVwH6Q9I4FUlNpMHqCffFZscJOtL28WzNS~LklPPGkGP7h7PvjUU7Ju7s9~N-Za2jWUwYipwgqGAUJqKZEG3xgZ1npRvZckmcP62ZmXqqDxwVBKPLpjh1TfwaA3QhuW2IPFR~qLKxQ8~n5cVbVcJJwX9OU0Xb9n2bQGUZu7qpDEw__"
-                  alt="men wearing headphone"
-                />
-              </div>
-            </Col>
+            <PersonBlog/>
+        
           </Row>
         </Container>
       </div>
-       */}
+      
     </div>
   );
 };

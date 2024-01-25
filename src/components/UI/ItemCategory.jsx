@@ -11,7 +11,6 @@ const ItemCategory = () => {
       item.title === "ZX9 SPEAKER" ||
       item.title === "YX1 WIRELESS EARPHONES"
   );
-
   const navigate = useNavigate();
 
   return (
