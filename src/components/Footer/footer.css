@@ -32,7 +32,7 @@
   color: #d87d4a;
 }
 .footer .footer__description p {
-  width: 540px;
+  width: 100%;
   color: #fff;
   opacity: 0.5;
   font-size: 15px;
