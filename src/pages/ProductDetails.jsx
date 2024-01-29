@@ -6,13 +6,18 @@ import "../styles/product-details.css";
 import itemData from "../assets/data/data";
 import Helmet from "../components/Helmet/Helmet";
 import { Col, Container, Row } from "reactstrap";
+import ProductsList from "../components/UI/ProductsList";
+import ItemCategory from "../components/UI/ItemCategory";
+import PersonBlog from "../components/UI/PersonBlog";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const item = itemData.filter((item) => item.id === parseInt(id))[0];
 
   const [number, setNumber] = useState(0);
-
+  const relatedProducts = itemData
+    .filter((filtered) => filtered.title !== item.title)
+    .slice(0, 3);
   const increment = () => {
     setNumber((prev) => (prev += 1));
   };
@@ -29,11 +34,10 @@ const ProductDetails = () => {
     let jsxElements = []; // Initialize an empty array to store JSX elements
     for (let i = 0; i < item.box.length; i++) {
       jsxElements.push(
-        <>
-          <p key={i}>
-            {item.boxpiece[i]}x <span>{item.box[i]}</span>
-          </p>
-        </>
+        <p key={i}>
+          <span className="box-quantity">{item.boxpiece[i]}x </span>{" "}
+          {item.box[i]}
+        </p>
       );
     }
     return jsxElements; // Return the array of JSX elements
@@ -88,7 +92,28 @@ const ProductDetails = () => {
             <div className="features__box">{addBox()}</div>
           </div>
         </Row>
+
+        <Row>
+          <div className="product__images">
+            <div className="product__images-left">
+              <img src={item.thumbnail1} alt={item.category} />
+              <img src={item.thumbnail2} alt={item.category} />
+            </div>
+            <div className="product__images-right">
+              <img src={item.thumbnail3} alt={item.category} />
+            </div>
+          </div>
+        </Row>
+        <Row className="d-flex align-items-center justify-content-between ">
+          <ProductsList similar="true" data={relatedProducts} />
+        </Row>
       </Container>
+      <Container className="mt-5">
+        <Row>
+          <ItemCategory />
+        </Row>
+      </Container>
+      <PersonBlog />
     </Helmet>
   );
 };

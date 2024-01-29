@@ -19,6 +19,7 @@ const ItemCategory = () => {
         <Col
           lg="4"
           onClick={() => {
+            window.scrollTo(0,0);
             navigate(`/${item.category}`);
           }}
         >
