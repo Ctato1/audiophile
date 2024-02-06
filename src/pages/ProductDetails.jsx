@@ -9,8 +9,12 @@ import { Col, Container, Row } from "reactstrap";
 import ProductsList from "../components/UI/ProductsList";
 import ItemCategory from "../components/UI/ItemCategory";
 import PersonBlog from "../components/UI/PersonBlog";
+// redux
+import { UseDispatch, useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../store/shopping-cart/CartSlice";
 
 const ProductDetails = () => {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const item = itemData.filter((item) => item.id === parseInt(id))[0];
 
@@ -41,6 +45,24 @@ const ProductDetails = () => {
       );
     }
     return jsxElements; // Return the array of JSX elements
+  }
+  const cartTotalAmount = useSelector((state) => state.cart.cartItems);
+  function addToCart() {
+    if (number === 0) {
+      return;
+    }
+    dispatch(
+      cartActions.addItem({
+        id: item.id,
+        title: item.title,
+        image: item.productImg,
+        price: item.price,
+        quantity: number,
+        totalPrice: item.price,
+        category: item.category,
+      })
+    );
+    setNumber(prev => prev = 0)
   }
   return (
     <Helmet title={item.title}>
@@ -75,7 +97,7 @@ const ProductDetails = () => {
                 </span>
               </div>
               <div className="addToCart">
-                <button>ADD TO CART</button>
+                <button onClick={addToCart}>ADD TO CART</button>
               </div>
             </div>
           </div>
@@ -104,7 +126,7 @@ const ProductDetails = () => {
             </div>
           </div>
         </Row>
-        <Row className="d-flex align-items-center justify-content-between ">
+        <Row className="d-flex align-items-center justify-content-center ">
           <ProductsList similar="true" data={relatedProducts} />
         </Row>
       </Container>

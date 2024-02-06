@@ -94,12 +94,16 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   opacity: 0.25;
+  transition: .3s ease-in-out;
   user-select: none; /* Standard syntax */
   -webkit-user-select: none; /* Webkit (Chrome, Safari) browsers */
   -moz-user-select: none; /* Mozilla Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
 }
-
+.math-symbol:hover{
+  color: #d87d4a;
+  opacity: 1;
+}
 .addToCart button {
   width: 160px;
   height: 48px;

@@ -1,8 +1,10 @@
 import { Container, Row, Col } from "reactstrap";
 import "./header.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemCategory from "../UI/ItemCategory";
+import { UseDispatch, useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../store/shopping-cart/CartSlice";
 const Header = () => {
   const routers = [
     {
@@ -22,12 +24,44 @@ const Header = () => {
       path: "earphones",
     },
   ];
+  const dispatch = useDispatch();
   const [navbar, setNavbar] = useState(false);
+  const [number, setNumber] = useState(0);
+
+  const increment = (item) => {
+    setNumber((prev) => (prev = item.quantity + 1));
+    dispatch(
+      cartActions.addItem({
+        id: item.id,
+        title: item.title,
+        image: item.productImg,
+        price: item.price,
+        quantity: 1,
+        totalPrice: item.price,
+        category: item.category,
+      })
+    );
+  };
+  const decrement = (id) => {
+    dispatch(cartActions.removeItem(id));
+  };
+  const removeAll = () => {
+    dispatch(cartActions.deleteAll());
+  };
+
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  useEffect(() => {
+    console.log(cartItems);
+  }, [cartItems]);
+
+  const [toggleCart, setToggleCart] = useState(false);
 
   return (
     <section className="header d-flex flex-column">
       <Container className="header__container">
-        <Row>
+        <Row className="m-0">
           <Col lg={5} md={2} xs={1} className="header__responsive ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +69,9 @@ const Header = () => {
               height="15"
               viewBox="0 0 16 15"
               fill="none"
-              onClick={()=>{setNavbar(prev=> prev = !prev)}}
+              onClick={() => {
+                setNavbar((prev) => (prev = !prev));
+              }}
             >
               <rect width="16" height="3" fill="white" />
               <rect y="6" width="16" height="3" fill="white" />
@@ -67,8 +103,60 @@ const Header = () => {
               </div>
             ))}
           </Col>
+          {toggleCart && (
+            <div className="toggle-div">
+              <div className="toggle__cart">
+                <header className="toggle_cart-header">
+                  <h2>CART ({cartItems.length})</h2>
+                  <span role="button" className="remove-all" onClick={removeAll}>
+                    Remove all
+                  </span>
+                </header>
+                {cartItems.map((item) => (
+                  <div className="toggle__cart-cart" key={item.id}>
+                    <div className="toggle__info">
+                      <div className="toggle__info-image">
+                        <img src={item.image} alt={item.category} />
+                      </div>
+
+                      <div className="toggle__info-info">
+                        <h6>{item.category}</h6>
+                        <p>$ {item.price}</p>
+                      </div>
+                    </div>
+
+                    <div className="toggle__buy">
+                      <div className="setNumber">
+                        <span
+                          className="math-symbol"
+                          onClick={() => decrement(item.id)}
+                        >
+                          -
+                        </span>
+                        <span>{item.quantity}</span>
+                        <span
+                          className="math-symbol"
+                          onClick={() => increment(item)}
+                        >
+                          +
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                <footer className="toggle_cart-footer d-flex align-items-center justify-content-between px-3">
+                  <h2>TOTAL</h2>
+                  <span role="button">$ {totalAmount.toFixed(2)}</span>
+                </footer>
+                <button className="checkout">CHECKOUT</button>
+              </div>
+            </div>
+          )}
           <Col lg={1} md={1} xs={5} className="header__cart-section">
-            <div className="header__cart">
+            <div
+              className="header__cart"
+              onClick={() => setToggleCart((prev) => (prev = !prev))}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -83,12 +171,18 @@ const Header = () => {
                   fill="white"
                 />
               </svg>
+              <span className="cart__badge">{totalQuantity}</span>
             </div>
           </Col>
         </Row>
       </Container>{" "}
       {navbar && (
-        <div className="black__navbar"  onClick={()=>{setNavbar(prev=>prev = !prev)}}>
+        <div
+          className="black__navbar"
+          onClick={() => {
+            setNavbar((prev) => (prev = !prev));
+          }}
+        >
           <Container>
             <Row className="navbar__container">
               <ItemCategory />

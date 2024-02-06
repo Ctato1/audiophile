@@ -9,7 +9,7 @@ const SimilarCard = ({ item }) => {
     navigate(`/product/${id}`);
   };
   return (
-    <Col lg="4" md="6" xs='12' className="similar__card">
+    <div  className="similar__card mb-5">
       <div className="similar__card-img">
         <img src={item.productImg} alt={item.title} />
       </div>
@@ -17,7 +17,7 @@ const SimilarCard = ({ item }) => {
         <h2>{item.title.split(' ').shift()}</h2>
         <button onClick={() => navigationProduct(item.id)}>SEE PRODUCT</button>
       </div>
-    </Col>
+    </div>
   );
 };
 

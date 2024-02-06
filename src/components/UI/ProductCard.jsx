@@ -7,6 +7,7 @@ import "../../styles/product-card.css";
 const ProductCard = ({ item, length }) => {
     const navigate = useNavigate();
     const navigationProduct =(id)=>{
+      window.scrollTo(0,0);
         navigate(`/product/${id}`)
     }
   return (
