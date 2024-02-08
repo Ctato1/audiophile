@@ -1,0 +1,129 @@
+body{
+    background: #e9e7e7;
+}
+.checkout-field {
+  border-radius: 8px;
+  background: #fff;
+  padding:24px;
+}
+.checkout-field h3 {
+  color: #000;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.checkout-field p {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  color: #d87d4a;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 0.929px;
+  text-transform: uppercase;
+}
+.checkout-field label {
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.214px;
+  margin-bottom: 9px;
+}
+.checkout-field input::placeholder{
+    font-weight: 300;
+    color: rgba(163, 163, 163, 0.825);
+}
+.checkout-field input:focus{
+    outline: 1px solid #d87d4a;
+}
+.checkout-field input {
+  margin-bottom: 24px;
+  border-radius: 8px;
+  border: 1px solid #cfcfcf;
+  background: #fff;
+
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+  padding: 18px 24px;
+}
+.form-first {
+  display: flex;
+  flex-direction: column;
+}
+.form-second {
+  display: flex;
+  flex-direction: column;
+}
+.form-third {
+  display: flex;
+  flex-direction: column;
+}
+.form-fourth {
+  display: flex;
+  flex-direction: column;
+}
+.form-fifth {
+  display: flex;
+  flex-direction: column;
+}
+.payment-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+.payment-details .payment-select {
+  border-radius: 8px;
+  border: 1px solid #cfcfcf;
+  background: #fff;
+  display: flex;
+  padding: 18px 16px;
+  height: 56px;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-details .payment-select input[type='radio']{
+    accent-color: #D87D4A;
+    transform: translateY(8px);
+}
+.payment-details .payment-select input[type='radio']:focus{
+    outline: none;
+}
+/* payment card */
+.payment-card{
+    display: flex;
+    flex-direction: column;
+}
+.card-number{
+    display: flex;
+    flex-direction: column;
+}
+.card-pin{
+    display: flex;
+    flex-direction: column;
+}
+.desktop-div{
+    display: flex;
+    flex-direction: column;
+}
+/* summary section */
+
+
+/* media section */
+
+@media only screen and (min-width:768px){
+    .desktop-field{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 16px;
+    }
+    .desktop-field .desktop-div{
+        width: 50%;
+    }
+
+}
