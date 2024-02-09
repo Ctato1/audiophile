@@ -1,10 +1,10 @@
-body{
-    background: #e9e7e7;
+body {
+  background: #e9e7e7;
 }
 .checkout-field {
   border-radius: 8px;
   background: #fff;
-  padding:24px;
+  padding: 24px;
 }
 .checkout-field h3 {
   color: #000;
@@ -29,12 +29,12 @@ body{
   letter-spacing: -0.214px;
   margin-bottom: 9px;
 }
-.checkout-field input::placeholder{
-    font-weight: 300;
-    color: rgba(163, 163, 163, 0.825);
+.checkout-field input::placeholder {
+  font-weight: 300;
+  color: rgba(163, 163, 163, 0.825);
 }
-.checkout-field input:focus{
-    outline: 1px solid #d87d4a;
+.checkout-field input:focus {
+  outline: 1px solid #d87d4a;
 }
 .checkout-field input {
   margin-bottom: 24px;
@@ -85,45 +85,146 @@ body{
   gap: 10px;
 }
 
-.payment-details .payment-select input[type='radio']{
-    accent-color: #D87D4A;
-    transform: translateY(8px);
+.payment-details .payment-select input[type="radio"] {
+  accent-color: #d87d4a;
+  transform: translateY(8px);
 }
-.payment-details .payment-select input[type='radio']:focus{
-    outline: none;
+.payment-details .payment-select input[type="radio"]:focus {
+  outline: none;
 }
 /* payment card */
-.payment-card{
-    display: flex;
-    flex-direction: column;
+.payment-card {
+  display: flex;
+  flex-direction: column;
 }
-.card-number{
-    display: flex;
-    flex-direction: column;
+.card-number {
+  display: flex;
+  flex-direction: column;
 }
-.card-pin{
-    display: flex;
-    flex-direction: column;
+.card-pin {
+  display: flex;
+  flex-direction: column;
 }
-.desktop-div{
-    display: flex;
-    flex-direction: column;
+.desktop-div {
+  display: flex;
+  flex-direction: column;
 }
 /* summary section */
+.summary-field {
+  margin-top: 10px;
+  padding: 32px 33px;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+.chosen-items {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.card-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card-info-first {
+  display: flex;
+  gap: 16px;
+}
+.card-info-image {
+  width: 64px;
+  height: 64px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-info-image img {
+  width: 60px;
+  height: 60px;
+  transform: scale(0.8);
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-info-title h5 {
+  display: -webkit-box;
+  width: 100px;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* info section */
+.items-info {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.items-info .items-info-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.items-info-section h5 {
+  color: #000;
+  font-size: 15px;
+  opacity: 0.5;
+  font-weight: 400;
+  line-height: 25px; /* 166.667% */
+}
+.items-info-section b {
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.items-info .items-info-section:last-child {
+  margin-top: 24px;
+}
+.items-info .items-info-section:last-child b {
+  color: #d87d4a;
+}
+.summary-field button {
+  margin-top: 32px;
+  width: 100%;
+  border: none;
+  height: 48px;
+  background: #d87d4a;
 
-
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 /* media section */
 
-@media only screen and (min-width:768px){
-    .desktop-field{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 16px;
-    }
-    .desktop-field .desktop-div{
-        width: 50%;
-    }
-
+@media only screen and (min-width: 768px) {
+  .desktop-field {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .desktop-field .desktop-div {
+    width: 50%;
+  }
+  .form-sixth {
+    display: flex;
+    width: 100%;
+  }
+  .form-sixth h4 {
+    width: 50%;
+  }
+  .form-sixth .payment-details {
+    width: 50%;
+  }
+  .summary-field {
+    margin-top: 5px;
+  }
 }

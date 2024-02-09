@@ -35,6 +35,7 @@
 }
 .header__cart {
   position: relative;
+  z-index: 4;
 }
 .header__cart .cart__badge {
   position: absolute;
@@ -89,6 +90,7 @@
   top: 0;
   right: 0;
   bottom: 0;
+  z-index: 3;
 }
 
 .toggle__cart {

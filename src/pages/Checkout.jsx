@@ -1,12 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/checkout.css";
 import { Container, Row, Col } from "reactstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const Checkout = () => {
   const navigate = useNavigate();
 
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const shipping = 50;
+
   const [payment, setPayment] = useState(false);
+
   return (
     <Container>
       <Row>
@@ -160,7 +166,48 @@ const Checkout = () => {
             </form>
           </section>
         </Col>
-        <Col lg="3"></Col>
+        <Col lg="3">
+          <section className="summary-field">
+            <h3>SUMMARY</h3>
+            <div className="chosen-items">
+              {cartItems.map((item) => (
+                <section className="card-info" key={item.id}>
+                  <div className="card-info-first">
+                    <div className="card-info-image">
+                      <img src={item.image} alt={item.title} />
+                    </div>
+                    <div className="card-info-title">
+                      <h5>{item.title}</h5>
+                      <p>$ {item.price}</p>
+                    </div>
+                  </div>
+                  <div className="card-info-second">
+                    <span>x{item.quantity}</span>
+                  </div>
+                </section>
+              ))}
+            </div>
+            <div className="items-info">
+              <section className="items-info-section">
+                <h5>TOTAL</h5>
+                <b>$ {totalAmount}</b>
+              </section>
+              <section className="items-info-section">
+                <h5>SHIPPING</h5>
+                <b>$ {shipping}</b>
+              </section>
+              <section className="items-info-section">
+                <h5>VAT (INCLUDED)</h5>
+                <b>$ 0</b>
+              </section>
+              <section className="items-info-section ">
+                <h5>GRAND TOTAL</h5>
+                <b>$ {totalAmount + shipping}</b>
+              </section>
+            </div>
+            <button>CONTINUE & PAY</button>
+          </section>
+        </Col>
       </Row>
     </Container>
   );

@@ -53,9 +53,6 @@ const Header = () => {
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const totalAmount = useSelector((state) => state.cart.totalAmount);
   const cartItems = useSelector((state) => state.cart.cartItems);
-  useEffect(() => {
-    console.log(cartItems);
-  }, [cartItems]);
 
   const [toggleCart, setToggleCart] = useState(false);
 
@@ -80,7 +77,7 @@ const Header = () => {
             </svg>
           </Col>
           <Col lg={4} md={3} xs={6}>
-            <div className="header__logo">
+            <div className="header__logo" style={{cursor:'pointer'}} onClick={()=>navigate('/')}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="143"

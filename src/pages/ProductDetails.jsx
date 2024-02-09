@@ -46,7 +46,7 @@ const ProductDetails = () => {
     }
     return jsxElements; // Return the array of JSX elements
   }
-  const cartTotalAmount = useSelector((state) => state.cart.cartItems);
+  
   function addToCart() {
     if (number === 0) {
       return;
