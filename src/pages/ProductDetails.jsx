@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../styles/product-details.css";
@@ -97,7 +97,7 @@ const ProductDetails = () => {
                 </span>
               </div>
               <div className="addToCart">
-                <button onClick={addToCart}>ADD TO CART</button>
+                <motion.button whileTap={{scale: 1.2}} onClick={addToCart}>ADD TO CART</motion.button>
               </div>
             </div>
           </div>

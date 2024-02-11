@@ -82,7 +82,7 @@
     height: 250px;
   }
   .itemCategory {
-    width: 160px;
+    width: 130px;
     height: 150px;
   }
   .itemCategory .itemCategory__imgs {
@@ -103,7 +103,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
   .responsive__items {
     height: fit-content;
     gap: 0px;

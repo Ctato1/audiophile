@@ -4,7 +4,7 @@ import "../../styles/person-blog.css";
 
 const PersonBlog = () => {
   return (
-    <div className="audophile__section">
+    <div className="audophile__section px-2">
       <Container>
         <Row className="d-flex align-items-center justify-content-space-between">
           <Col lg="6">

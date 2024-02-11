@@ -106,17 +106,18 @@ const Checkout = () => {
                   <div
                     className="payment-select"
                     style={{ border: payment ? "1px solid red" : "" }}
+                    onClick={() => setPayment((prev) => (prev = true))}
                   >
                     <input
                       id="moneyBtn"
                       type="radio"
                       name="card"
                       checked={payment ? true : false}
-                      onClick={() => setPayment((prev) => (prev = true))}
+                      
                     />
                     <label
                       for="moneyBtn"
-                      onClick={() => setPayment((prev) => (prev = true))}
+                      
                     >
                       e-Money
                     </label>
@@ -124,17 +125,16 @@ const Checkout = () => {
                   <div
                     className="payment-select"
                     style={{ border: !payment ? "1px solid red" : "" }}
+                    onClick={() => setPayment((prev) => (prev = false))}
                   >
                     <input
                       id="cashBtn"
                       type="radio"
                       name="card"
                       checked={!payment ? true : false}
-                      onClick={() => setPayment((prev) => (prev = false))}
                     />
                     <label
                       for="cashBtn"
-                      onClick={() => setPayment((prev) => (prev = false))}
                     >
                       Cash on Delivery
                     </label>
@@ -190,7 +190,7 @@ const Checkout = () => {
             <div className="items-info">
               <section className="items-info-section">
                 <h5>TOTAL</h5>
-                <b>$ {totalAmount}</b>
+                <b>$ {totalAmount.toFixed(2)}</b>
               </section>
               <section className="items-info-section">
                 <h5>SHIPPING</h5>
@@ -202,7 +202,7 @@ const Checkout = () => {
               </section>
               <section className="items-info-section ">
                 <h5>GRAND TOTAL</h5>
-                <b>$ {totalAmount + shipping}</b>
+                <b>$ {(totalAmount + shipping).toFixed(2)}</b>
               </section>
             </div>
             <button>CONTINUE & PAY</button>

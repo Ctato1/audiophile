@@ -64,7 +64,7 @@
 .black__navbar {
   position: fixed;
   width: 101%;
-  height: calc(100svh - 100px);
+  height: calc(100svh - 0px);
   background: #00000077;
   z-index: 2;
   bottom: 0;

@@ -4,6 +4,7 @@ import "./item-category.css";
 import shadow from "../../assets/images/shadow.png";
 import { useNavigate } from "react-router-dom";
 import itemData from "../../assets/data/data";
+import { motion } from "framer-motion";
 const ItemCategory = () => {
   const selectedItems = itemData.filter(
     (item) =>
@@ -15,15 +16,16 @@ const ItemCategory = () => {
 
   return (
     <div className="responsive__items d-flex align-items-center justify-content-center">
-      {selectedItems.map((item, index) => (
+      {selectedItems.map((item) => (
         <Col
           lg="4"
+          key={item.id}
           onClick={() => {
             window.scrollTo(0,0);
             navigate(`/${item.category}`);
           }}
         >
-          <div className="itemCategory">
+          <motion.div className="itemCategory" whileHover={{scale: 0.94}}>
             <div className="itemCategory__imgs">
               <img src={item.productImg} alt={item.title} />
               <img src={shadow} alt="a shadow" />
@@ -43,12 +45,12 @@ const ItemCategory = () => {
                   <path
                     d="M1.3219 1L6.3219 6L1.3219 11"
                     stroke="#D87D4A"
-                    stroke-width="2"
+                    strokeWidth="2"
                   />
                 </svg>
               </div>
             </div>
-          </div>
+          </motion.div>
         </Col>
       ))}
     </div>

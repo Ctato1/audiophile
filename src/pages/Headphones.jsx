@@ -12,12 +12,12 @@ const Headphones = () => {
     <Helmet title="headphones">
       <CommonSection title="HEADPHONES" />
       <section>
-        <Container>
-          <Row>
+      <Container >
+          <Row className="pb-3">
             <ProductsList data={headphones} />
           </Row>
         </Container>
-        <section className="item__category">
+        <section className="item__category mt-5">
           <Container>
             <Row>
               <ItemCategory />
