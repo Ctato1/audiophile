@@ -17,7 +17,7 @@ const Checkout = () => {
   const close = () => setOrder(false);
 
   return (
-    <Container>
+    <Container className="mb-5">
       <Row>
         <Col lg="12">
           <div className="go-back mt-3 mb-5">

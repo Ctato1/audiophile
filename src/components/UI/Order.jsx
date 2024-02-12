@@ -13,13 +13,13 @@ const Order = ({ items, totalAmount, close }) => {
   }
 
   const removeItems = (e) => {
-    window.scrollTo(0, 0);
     setClassName(true);
     setTimeout(() => {
       setClassName(false);
       close();
       navigate("/");
       dispatch(cartActions.deleteAll());
+      window.scrollTo(0, 0);
     }, 1000);
   };
 
@@ -75,7 +75,7 @@ const Order = ({ items, totalAmount, close }) => {
             )}
             {showAll &&
               items?.map((item) => (
-                <div className="ordered__item py-3">
+                <div className="ordered__item py-1">
                   <div className="ordered__img">
                     <img src={item.image} alt={item.title} />
                   </div>

@@ -95,7 +95,7 @@
 
 .toggle__cart {
   position: absolute;
-  top: 122px;
+  top: 102px;
   right: 115px;
   width: 350px !important;
   height: fit-content;
@@ -215,13 +215,8 @@
     right: 10px;
   }
   .toggle__cart {
-    position: absolute;
-    top: 122px;
     right: 10px;
     width: 350px !important;
-    height: fit-content;
-    border-radius: 10px;
-    background: #fff;
   }
 }
 @media (max-width: 400px) {
