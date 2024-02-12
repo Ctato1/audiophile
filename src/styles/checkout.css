@@ -1,6 +1,4 @@
-body {
-  background: #e9e7e7;
-}
+
 .checkout-field {
   border-radius: 8px;
   background: #fff;
@@ -192,19 +190,7 @@ body {
 .items-info .items-info-section:last-child b {
   color: #d87d4a;
 }
-.summary-field button {
-  margin-top: 32px;
-  width: 100%;
-  border: none;
-  height: 48px;
-  background: #d87d4a;
 
-  color: #fff;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
 /* media section */
 
 @media only screen and (min-width: 768px) {

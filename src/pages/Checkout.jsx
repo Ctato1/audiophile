@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/checkout.css";
 import { Container, Row, Col } from "reactstrap";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
+import Order from "../components/UI/Order";
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -12,6 +13,8 @@ const Checkout = () => {
   const shipping = 50;
 
   const [payment, setPayment] = useState(false);
+  const [order, setOrder] = useState(false);
+  const close = () => setOrder(false);
 
   return (
     <Container>
@@ -113,14 +116,8 @@ const Checkout = () => {
                       type="radio"
                       name="card"
                       checked={payment ? true : false}
-                      
                     />
-                    <label
-                      for="moneyBtn"
-                      
-                    >
-                      e-Money
-                    </label>
+                    <label for="moneyBtn">e-Money</label>
                   </div>
                   <div
                     className="payment-select"
@@ -133,11 +130,7 @@ const Checkout = () => {
                       name="card"
                       checked={!payment ? true : false}
                     />
-                    <label
-                      for="cashBtn"
-                    >
-                      Cash on Delivery
-                    </label>
+                    <label for="cashBtn">Cash on Delivery</label>
                   </div>
                 </div>
               </div>
@@ -205,10 +198,24 @@ const Checkout = () => {
                 <b>$ {(totalAmount + shipping).toFixed(2)}</b>
               </section>
             </div>
-            <button>CONTINUE & PAY</button>
+            <button
+              className="orange__btn"
+              onClick={() => {
+                setOrder(true);
+              }}
+            >
+              CONTINUE & PAY
+            </button>
           </section>
         </Col>
       </Row>
+      {order && (
+        <Order
+          items={cartItems}
+          totalAmount={totalAmount + shipping}
+          close={close}
+        />
+      )}
     </Container>
   );
 };

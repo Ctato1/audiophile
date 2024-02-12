@@ -1,9 +1,9 @@
 import { Container, Row, Col } from "reactstrap";
 import "./header.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import ItemCategory from "../UI/ItemCategory";
-import { UseDispatch, useDispatch, useSelector } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/shopping-cart/CartSlice";
 const Header = () => {
   const routers = [
@@ -27,10 +27,8 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [navbar, setNavbar] = useState(false);
-  const [number, setNumber] = useState(0);
 
   const increment = (item) => {
-    setNumber((prev) => (prev = item.quantity + 1));
     dispatch(
       cartActions.addItem({
         id: item.id,
