@@ -7,7 +7,6 @@ import PersonBlog from "../components/UI/PersonBlog";
 
 import speaker_2 from '../assets/images/speaker-2.jpg'
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 const Home = () => {
   const speaker = itemData.filter((item) => item.title === "ZX9 SPEAKER")[0];

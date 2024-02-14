@@ -10,7 +10,7 @@ import ProductsList from "../components/UI/ProductsList";
 import ItemCategory from "../components/UI/ItemCategory";
 import PersonBlog from "../components/UI/PersonBlog";
 // redux
-import { UseDispatch, useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { cartActions } from "../store/shopping-cart/CartSlice";
 
 const ProductDetails = () => {

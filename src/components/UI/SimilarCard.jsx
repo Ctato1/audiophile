@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { Col } from "reactstrap";
 import '../../styles/similar-card.css'
 
 const SimilarCard = ({ item }) => {
