@@ -41,7 +41,7 @@ const Home = () => {
                 }}>See Product</button>
               </div>
               <div className="hero__section-right">
-                <img src={headPhone} alt="headphone image" />
+                <img src={headPhone} alt="headphone" />
               </div>
             </div>
           </Row>
@@ -61,7 +61,7 @@ const Home = () => {
           <Row className="speaker__category-row">
             <Col lg="6" md="12">
               <div className="speaker__category-left">
-                <img src={speaker.productImg} alt="image" />
+                <img src={speaker.productImg} alt="speaker" />
                 <svg
                   width="795"
                   height="560"
@@ -122,7 +122,7 @@ const Home = () => {
                 }}
                 >SEE PRODUCT</button>
               </div>
-            <img src={speaker_2} alt="speaker image" />
+            <img src={speaker_2} alt="speaker" />
           </Row>
         </Container>
       </div>
